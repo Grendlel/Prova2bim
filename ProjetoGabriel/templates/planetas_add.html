@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+    {% set mensagens = get_flashed_messages()%}
+    {%if mensagens %}
+        {% for msg in mensagens %}
+            <div class="mensagens">
+                {{msg}}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <form action="/planetas/save" method="post">
+        <fieldset>
+            <div>
+                <label for="nome">Nome: </label>
+                <input type="string" name="nome" id="nome">
+            </div>
+            <div>
+                <label for="distancia_sol">Distacia do Sol: </label>
+                <input type="integer" name="distancia_sol" id="distancia_sol">
+            </div>
+            <div>
+                <label for="numero_satelites">Numero de Satélites: </label>
+                <input type="string" name="numero_satelites" id="numero_satelites">
+            </div>
+            <div>
+                <button type="submit">Salvar</button>
+            </div>
+        </fieldset>
+    </form>
+
+{% endblock %}
